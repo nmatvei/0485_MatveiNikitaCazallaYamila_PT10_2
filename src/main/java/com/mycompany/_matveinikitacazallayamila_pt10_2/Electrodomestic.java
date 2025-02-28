@@ -78,34 +78,34 @@ public class Electrodomestic {
     }
     
     public int preuFinal() {
-               
+        
+        int preuF = preuBase;
+        
         if (consumEnergetic == 'A' || consumEnergetic == 'a') {
-            preuBase += 100;
+            preuF += 100;
         } else if (consumEnergetic == 'B' || consumEnergetic == 'b') {
-            preuBase += 80;
+            preuF += 80;
         } else if (consumEnergetic == 'C' || consumEnergetic == 'c') {
-            preuBase += 60;
+            preuF += 60;
         } else if (consumEnergetic == 'D' || consumEnergetic == 'd') {
-            preuBase += 50;
+            preuF += 50;
         } else if (consumEnergetic == 'E' || consumEnergetic == 'e') {
-            preuBase += 30;
+            preuF += 30;
         } else if (consumEnergetic == 'F' || consumEnergetic == 'f'){
-            preuBase += 10;
+            preuF += 10;
         }
         
         if (pes >= 0 && pes < 20) {
-           pes += 10; 
+           preuF += 10; 
         } else if (pes >= 20 && pes < 50) {
-            pes += 50;
+            preuF += 50;
         } else if (pes >= 50 && pes < 80) {
-            pes += 80;
+            preuF += 80;
         } else if (pes > 80) {
-            pes += 100;
+            preuF += 100;
         }
         
-        
-        
-        return preuBase;
+        return preuF;
         
     }
 

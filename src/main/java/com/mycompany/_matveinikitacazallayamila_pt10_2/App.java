@@ -88,7 +88,8 @@ public class App {
         
         for (int i = 0; i < electrodomestics.size(); i++) {
             Electrodomestic elec = electrodomestics.get(i);
-            System.out.println("El preu final de l'electrodoméstic " + (i+1) + " és: " + elec.preuFinal());
+            System.out.println("El preu final " + (elec instanceof Electrodomestic) + " és: "
+                    + elec.preuFinal());
         }
         
     }

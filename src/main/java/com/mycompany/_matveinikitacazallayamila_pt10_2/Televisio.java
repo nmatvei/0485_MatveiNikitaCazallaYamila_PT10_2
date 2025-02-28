@@ -50,7 +50,7 @@ public class Televisio extends Electrodomestic{
             super.preuBase *= 0.30;
         }
         
-        if (resolucio4K = true) {
+        if (resolucio4K) {
             super.preuBase += 50;
         }
         

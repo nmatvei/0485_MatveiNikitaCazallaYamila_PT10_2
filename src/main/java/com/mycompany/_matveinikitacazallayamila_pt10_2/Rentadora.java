@@ -34,10 +34,12 @@ public class Rentadora extends Electrodomestic {
     @Override
     public int preuFinal() {
         //Preguntar si tiene además de los 50 se le incrementa el precio de entre 20kg y 50kg
-        if (super.pes > 30) {
-            super.preuBase = 50;
+        int preuF = super.preuFinal();
+        
+        if (pes > 30) {
+            preuF += 50;
         }
-        return super.preuFinal();
+        return preuF;
     }
     
     
