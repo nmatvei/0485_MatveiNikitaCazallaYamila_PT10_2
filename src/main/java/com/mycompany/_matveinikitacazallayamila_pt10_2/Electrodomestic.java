@@ -77,6 +77,11 @@ public class Electrodomestic {
         
     }
     
+    /**
+     * Mètode preuFinal per calcular el preu final del electrodomestic segons
+     * el seu consume energétics i el seu pes;
+     * @return 
+     */
     public int preuFinal() {
         
         int preuF = preuBase;
@@ -106,26 +111,37 @@ public class Electrodomestic {
         }
         
         return preuF;
-        
     }
-
+    
+    /**
+     * Mètode GET per conseguir el preu base
+     * @return 
+     */
     public int getPreuBase() {
         return preuBase;
     }
-
+    
+    /**
+     * Mètode GET per conseguir el pes
+     * @return 
+     */
     public int getPes() {
         return pes;
     }
-
+    
+    /**
+     * Mètode GET per conseguir el color
+     * @return 
+     */
     public String getColor() {
         return color;
     }
-
+    
+    /**
+     * Mètode GET per conseguir el consum energétic
+     * @return 
+     */
     public char getConsumEnergetic() {
         return consumEnergetic;
     }
-    
-    
-    
-    
 }
