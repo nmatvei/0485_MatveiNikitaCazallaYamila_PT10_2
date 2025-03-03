@@ -4,6 +4,7 @@
 
 package com.mycompany._matveinikitacazallayamila_pt10_2;
 
+import Exceptions.resolucio4KException;
 import Exceptions.consumEnergeticException;
 import Exceptions.carregaException;
 import Exceptions.colorException;
@@ -22,7 +23,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         boolean resolucio4K, ElectrodomesticCorrecte = false;
-        int preuBase, pes, carrega, polzades;
+        int preuBase, pes, carrega, polzades, preuFinal = 0;
+        int rentadoraP = 0, televisioP = 0;
         char consumEnergetic;
         String color;
         
@@ -34,6 +36,7 @@ public class App {
         polzades = demanarPolzades();
         consumEnergetic = demanarConsumEnergetic();
         color = demanarColor();
+        resolucio4K = demanarResolucio4K();
         
         while (!ElectrodomesticCorrecte) {
             
@@ -78,6 +81,8 @@ public class App {
             } catch (colorException e) {
                 System.err.println(e);
                 color = demanarColor();
+            } catch (resolucio4KException e) {
+                System.err.println(e);
             } catch (Exception e) {
                 System.err.println(e);
             }
@@ -86,11 +91,25 @@ public class App {
             
         }
         
+        //Se hace instance of de rentadora y tv para sumar sus precios separados
         for (int i = 0; i < electrodomestics.size(); i++) {
             Electrodomestic elec = electrodomestics.get(i);
-            System.out.println("El preu final " + (elec instanceof Electrodomestic) + " és: "
-                    + elec.preuFinal());
+            
+            if (elec instanceof Rentadora) {
+                rentadoraP += elec.preuFinal();
+            }
+            
+            if (elec instanceof Televisio) {
+                televisioP += elec.preuFinal();
+            }
+            
+            preuFinal += elec.preuFinal();
         }
+        
+        System.out.println("El preu final de les rentadores és: " + rentadoraP);
+        System.out.println("El preu final de les televisions és: " + televisioP);
+        System.out.println("El preu final de tots els electrodomestics és: "
+                + preuFinal);
         
     }
     
@@ -143,6 +162,15 @@ public class App {
                 + "\nResposta: ");
         String color = sc.nextLine();
         return color;
+    }
+    
+    
+    public static boolean demanarResolucio4K(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Les televisions compten amb resolució 4K:"
+                + "\nEscriu 1 si és cert o 0 si és fals: ");
+        boolean resolucio4k = sc.nextBoolean();
+        return resolucio4k;
     }
     
 }
