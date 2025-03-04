@@ -5,7 +5,7 @@
 package com.mycompany._matveinikitacazallayamila_pt10_2;
 
 /**
- *
+ *  Subclasse Televisio
  * @author Nikita i Yamila
  */
 public class Televisio extends Electrodomestic{

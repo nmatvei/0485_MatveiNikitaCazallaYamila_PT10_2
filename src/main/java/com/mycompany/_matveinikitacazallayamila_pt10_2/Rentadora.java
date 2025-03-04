@@ -5,7 +5,7 @@
 package com.mycompany._matveinikitacazallayamila_pt10_2;
 
 /**
- *
+ *  Subclasse Rentadora
  * @author Nikita i Yamila
  */
 public class Rentadora extends Electrodomestic {
