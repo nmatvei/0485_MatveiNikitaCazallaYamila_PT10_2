@@ -8,7 +8,7 @@ package com.mycompany._matveinikitacazallayamila_pt10_2;
  *  Subclasse Rentadora
  * @author Nikita i Yamila
  */
-public class Rentadora extends Electrodomestic {
+public class Rentadora extends Electrodomestic{
     /*Declaració de variables i atributs*/
     private int carrega;
     private final int CARREGA_DEFECTE = 5;
@@ -16,7 +16,7 @@ public class Rentadora extends Electrodomestic {
     /**
      * Constructor per defecte
      */
-    public Rentadora(){
+    public Rentadora() throws Exception{
         super();
         this.carrega = CARREGA_DEFECTE;
     }
@@ -26,7 +26,7 @@ public class Rentadora extends Electrodomestic {
      * @param preu
      * @param pes 
      */
-    public Rentadora(int preu, int pes){
+    public Rentadora(int preu, int pes) throws Exception{
         super(preu, pes);
         this.carrega = CARREGA_DEFECTE;
     }

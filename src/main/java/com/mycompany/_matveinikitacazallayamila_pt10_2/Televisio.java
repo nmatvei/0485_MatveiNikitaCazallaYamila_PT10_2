@@ -18,7 +18,7 @@ public class Televisio extends Electrodomestic{
     /**
      * Constructor per defecte
      */
-    public Televisio(){
+    public Televisio() throws Exception{
         super();
         this.mida = MIDA_DEFECTE;
         this.resolucio4K = RESOLUCIO_DEFECTE;
@@ -29,7 +29,7 @@ public class Televisio extends Electrodomestic{
      * @param preu
      * @param pes
      */
-    public Televisio(int preu, int pes){
+    public Televisio(int preu, int pes) throws Exception{
         super(preu, pes);
         this.mida = MIDA_DEFECTE;
         this.resolucio4K = RESOLUCIO_DEFECTE;
