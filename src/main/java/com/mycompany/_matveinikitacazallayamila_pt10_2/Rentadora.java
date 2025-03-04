@@ -5,47 +5,68 @@
 package com.mycompany._matveinikitacazallayamila_pt10_2;
 
 /**
- *
+ *  Subclasse Rentadora
  * @author Nikita i Yamila
  */
-public class Rentadora extends Electrodomestic {
-    
+public class Rentadora extends Electrodomestic{
+    /*Declaració de variables i atributs*/
     private int carrega;
     private final int CARREGA_DEFECTE = 5;
 
     /**
      * Constructor per defecte
      */
-    public Rentadora(){
+    public Rentadora() throws Exception{
         super();
         this.carrega = CARREGA_DEFECTE;
     }
-
-    public Rentadora(int preu, int pes) throws Exception {
+    /**
+     * Constructor que rep els paràmetres de preu i pes. Els altres atributs són
+     * predeterminats
+     * @param preu
+     * @param pes 
+     */
+    public Rentadora(int preu, int pes) throws Exception{
         super(preu, pes);
         this.carrega = CARREGA_DEFECTE;
     }
-
+    
+    /**
+     * Constructor que rep tots el parametres pels atributs
+     * @param carrega
+     * @param preu
+     * @param pes
+     * @param color
+     * @param energia
+     * @throws Exception 
+     */
     public Rentadora(int carrega, int preu, int pes, String color, char energia) throws Exception {
         super(preu, pes, color, energia);
         this.carrega = carrega;
     }
-
+    
+    /**
+     * Mètode GET per conseguir la càrrega de la rentadora
+     * @return 
+     */
     public int getCarrega() {
         return carrega;
     }
-
+    
+    /**
+     * Mètode preuFinal sobrescrit per calcular el preu en base a la càrrega de
+     * la rentadora
+     * @return 
+     */
     @Override
     public int preuFinal() {
-        //Preguntar si tiene además de los 50 se le incrementa el precio de entre 20kg y 50kg
         int preuF = super.preuFinal();
         
-        if (pes > 30) {
+        /*Comprovem que la càrrga sigui major a 30 per afegir 50 al preu*/
+        if (this.carrega > 30) {
             preuF += 50;
         }
+        
         return preuF;
     }
-    
-    
-    
 }
