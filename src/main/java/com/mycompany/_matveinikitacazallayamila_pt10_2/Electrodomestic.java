@@ -8,11 +8,11 @@ import Exceptions.colorException;
 import Exceptions.consumEnergeticException;
 
 /**
- *
+ * Superclasse Electrodomestic
  * @author Nikita i Yamila
  */
 public class Electrodomestic {
-    
+    /*Declaració d'atributs i variables*/
     protected int preuBase, pes;
     protected String color;
     protected char consumEnergetic;
@@ -20,24 +20,37 @@ public class Electrodomestic {
     protected static final char CONSUM_ENERG_DEFECTE = 'F';
     protected static final int PREU_BASE_DEFECTE = 100, PES_DEFECTE = 5;
     
-    public Electrodomestic() throws Exception {
+    /**
+     * Constructor per defecte del objecte Electrodomestic
+     */
+    public Electrodomestic(){
         this.color = COLOR_DEFECTE;
         this.consumEnergetic = CONSUM_ENERG_DEFECTE;
         this.preuBase = PREU_BASE_DEFECTE;
         this.pes = PES_DEFECTE;
-        comprovarConsumEnergetic(consumEnergetic);
-        comprovarColor(color);
     }
     
-    public Electrodomestic(int preu, int pes) throws Exception {
+    /**
+     * Constructor que rep els paràmetres de preu i pes. Els altres atributs són
+     * predeterminats
+     * @param preu
+     * @param pes 
+     */
+    public Electrodomestic(int preu, int pes){
         this.color = COLOR_DEFECTE;
         this.consumEnergetic = CONSUM_ENERG_DEFECTE;
         this.preuBase = preu;
         this.pes = pes;
-        comprovarConsumEnergetic(consumEnergetic);
-        comprovarColor(color);
     }
     
+    /**
+     * Constructor que rep tots el parametres pels atributs
+     * @param preu
+     * @param pes
+     * @param color
+     * @param energia
+     * @throws Exception 
+     */
     public Electrodomestic(int preu, int pes, String color, char energia) throws Exception {
         this.color = color;
         this.consumEnergetic = energia;
@@ -47,7 +60,12 @@ public class Electrodomestic {
         comprovarColor(color);
     }
     
-    private void comprovarConsumEnergetic(char lletra) throws Exception {
+    /**
+     * Mètode comprovarConsumEnergetic per comprovar que l'etiqueta del consum
+     * energètic sigui correcte 
+     * @param lletra 
+     */
+    private void comprovarConsumEnergetic(char lletra){
         
         if (lletra == 'A' || lletra == 'a' ||
             lletra == 'B' || lletra == 'b' ||
@@ -57,12 +75,19 @@ public class Electrodomestic {
             lletra == 'F' || lletra == 'f') {
             this.consumEnergetic = lletra;
         } else {
-            throw new consumEnergeticException("ERROR. Aquest consum energètic és incorrecte.");
+            System.out.println("S'ha introduït una etiqueta del consum energètic"
+                    + " incorrecte, es possarà l'etiqueta per defecte: F");
+            this.consumEnergetic = CONSUM_ENERG_DEFECTE;
         }
         
     }
     
-    private void comprovarColor(String color) throws Exception {
+    /**
+     * Mètode comprovarColor per comprovar si el color introduït en el objecte és
+     * correcte
+     * @param color 
+     */
+    private void comprovarColor(String color){
         
         if (color.equalsIgnoreCase("Blanc") ||
             color.equalsIgnoreCase("Negre") ||
@@ -71,10 +96,10 @@ public class Electrodomestic {
             color.equalsIgnoreCase("Gris")) {
             this.color = color;
         } else {
-            throw new colorException("ERROR. Aquest color no el tenim en la nostra"
-                    + "gama de colors.");
+            System.out.println("S'ha introduït un color invàlid, es possarà el"
+                    + "color per defecte: Blanc");
+            this.color = COLOR_DEFECTE;
         }
-        
     }
     
     /**

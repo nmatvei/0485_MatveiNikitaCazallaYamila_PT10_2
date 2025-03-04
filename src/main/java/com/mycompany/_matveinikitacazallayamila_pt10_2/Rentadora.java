@@ -13,7 +13,11 @@ public class Rentadora extends Electrodomestic {
     private int carrega;
     private final int CARREGA_DEFECTE = 5;
 
-    public Rentadora() throws Exception {
+    /**
+     * Constructor per defecte
+     */
+    public Rentadora(){
+        super();
         this.carrega = CARREGA_DEFECTE;
     }
 
