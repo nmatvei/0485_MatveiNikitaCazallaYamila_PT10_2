@@ -46,15 +46,17 @@ public class Televisio extends Electrodomestic{
     @Override
     public int preuFinal() {
         
+        int preuF = super.preuBase;
+        
         if (mida > 40) {
-            super.preuBase *= 0.30;
+            preuF *= 1.30;
         }
         
         if (resolucio4K) {
-            super.preuBase += 50;
+            preuF += 50;
         }
         
-        return super.preuFinal(); 
+        return preuF;
     }
 
     
